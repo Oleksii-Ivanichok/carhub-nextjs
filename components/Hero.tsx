@@ -1,6 +1,6 @@
 "use client";
 
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@components/UI/CustomButton";
 import Image from 'next/image'
 import {PhotoSlider} from "@components/index";
 
@@ -26,10 +26,8 @@ const Hero = () => {
             </div>
             <div className="hero__image-container">
                 <div className="hero__image">
-                    {/*<Image src="/hero.png" alt="hero" fill className="object-contain"/>*/}
                     <PhotoSlider />
                 </div>
-                <div className="hero__image-overlay"></div>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import CustomButton from './CustomButton'
+import CustomButton from './UI/CustomButton'
 const Navbar = () => {
     return (
         <header className="w-full absolute z-10">
@@ -15,12 +15,26 @@ const Navbar = () => {
                         className="object-contain"
                     />
                 </Link>
-                
-                <CustomButton
-                    title="Sign In"
-                    btnType="button"
-                    containerStyles="text-primary-blue rounded-full bg-white min-w[130px]"
-                />
+
+                <div className="flex gap-3">
+                    <CustomButton
+                        title="Cart"
+                        btnType="button"
+                        containerStyles="text-white rounded-full bg-primary-blue min-w[130px]"
+                    />
+                    <CustomButton
+                        title="Contacts"
+                        btnType="button"
+                        containerStyles="text-white rounded-full bg-primary-blue min-w[130px]"
+                    />
+                    <CustomButton
+                        title="Sign In"
+                        btnType="button"
+                        containerStyles="text-white rounded-full bg-primary-blue min-w[130px]"
+                    />
+
+                </div>
+
             </nav>
         </header>
     )

@@ -57,3 +57,10 @@ export interface ShowMoreProps{
     isNext: boolean;
 }
 
+export interface CustomDatePickerProps {
+    label: string;
+    selectedDate: Date | null;
+    onDateChange: (date: Date) => void;
+    minDate?: Date | null;
+    maxDate?: Date | null;
+}
