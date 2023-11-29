@@ -11,12 +11,12 @@ import RentDateSelector from "@components/CardDetails/RentDateSelector";
 
 const CarDetails = ({ isOpen, closeModal, car}: CarDetailsProps) => {
     const [rentedCar, setRentedCar] = useState()
-    const rentCar = (startDate: Date, endDate : Date | null) => {
-
-        console.log(startDate);
-        console.log(endDate);
-        console.log(car);
-        console.log(car.car_rent_in_$)
+    const rentCar = (startDate: Date, endDate : Date | null, calculatedPrice: number) => {
+        if(calculatedPrice< 1){
+            alert(`Select dates correctly`)
+        } else {
+            alert(`You rent ${car.make} ${car.model} successful`)
+        }
     }
 
     return (

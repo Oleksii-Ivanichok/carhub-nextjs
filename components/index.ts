@@ -11,6 +11,7 @@ import ShowMore from "./ShowMore";
 import PhotoSlider from "./PhotoSlider";
 import CustomDatePicker from "./UI/CustomDatePicker";
 import RentDateSelector from "./CardDetails/RentDateSelector";
+import Cart from "./Cart"
 
 export {
     Hero,
@@ -25,5 +26,6 @@ export {
     ShowMore,
     PhotoSlider,
     CustomDatePicker,
-    RentDateSelector
+    RentDateSelector,
+    Cart
 }
