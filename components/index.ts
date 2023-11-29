@@ -1,14 +1,16 @@
 import Hero from './Hero'
 import CustomButton from "./UI/CustomButton";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "./Main/Navbar";
+import Footer from "./Main/Footer";
 import SearchBar from "./SearchBar";
 import CustomFilter from "./CustomFilter";
 import SearchManufacturer from "./SearchManufacturer";
 import CarCard from "./CarCard";
-import CarDetails from "./CarDetails";
+import CarDetails from "./CardDetails/CarDetails";
 import ShowMore from "./ShowMore";
 import PhotoSlider from "./PhotoSlider";
+import CustomDatePicker from "./UI/CustomDatePicker";
+import RentDateSelector from "./CardDetails/RentDateSelector";
 
 export {
     Hero,
@@ -21,5 +23,7 @@ export {
     CarCard,
     CarDetails,
     ShowMore,
-    PhotoSlider
+    PhotoSlider,
+    CustomDatePicker,
+    RentDateSelector
 }

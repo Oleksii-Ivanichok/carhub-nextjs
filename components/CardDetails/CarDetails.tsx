@@ -1,19 +1,24 @@
 "use client";
 
 import Image from 'next/image'
-import {Fragment} from 'react'
+import {Fragment, useState} from 'react'
 
 import {Dialog, Transition} from "@headlessui/react";
-import {CarProps} from "@types";
+import {CarDetailsProps, CarProps} from "@types";
 import {generateCarImageUrl} from "@utils";
-import {CustomButton} from "@components/index";
+import {CustomButton} from "@components";
+import RentDateSelector from "@components/CardDetails/RentDateSelector";
 
-interface CarDetailsProps {
-    isOpen:boolean;
-    closeModal: () => void;
-    car: CarProps;
-}
 const CarDetails = ({ isOpen, closeModal, car}: CarDetailsProps) => {
+    const [rentedCar, setRentedCar] = useState()
+    const rentCar = (startDate: Date, endDate : Date | null) => {
+
+        console.log(startDate);
+        console.log(endDate);
+        console.log(car);
+        console.log(car.car_rent_in_$)
+    }
+
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -67,15 +72,7 @@ const CarDetails = ({ isOpen, closeModal, car}: CarDetailsProps) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <CustomButton
-                                        title="Rent"
-                                        containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
-                                        textStyles="text-white text-[14px] leading-17px font-bold"
-                                    />
-                                    <input type="date"/>
-                                    <input type="date"/>
-                                </div>
+                                <RentDateSelector rent={rentCar} carRentPrice={car.car_rent_in_$}/>
                                 <div className="flex flex-1 flex-col gap-2">
                                     <h2 className="font-semibold text-xl capitalize">{car.make} {car.model}</h2>
                                     <div className="flex mt-3 flex-wrap gap-4">

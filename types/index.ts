@@ -16,6 +16,7 @@ export interface SearchManuFacturerProps {
 }
 
 export interface CarProps {
+    car_rent_in_$: number;
     city_mpg: number;
     class: string;
     combination_mpg: number;
@@ -56,6 +57,11 @@ export interface ShowMoreProps{
     pageNumber: number;
     isNext: boolean;
 }
+export interface CarDetailsProps {
+    isOpen:boolean;
+    closeModal: () => void;
+    car: CarProps;
+}
 
 export interface CustomDatePickerProps {
     label: string;
@@ -63,4 +69,9 @@ export interface CustomDatePickerProps {
     onDateChange: (date: Date) => void;
     minDate?: Date | null;
     maxDate?: Date | null;
+}
+
+export interface RentDateSelectorProps {
+    rent: (startDate: Date, endDate: Date | null) => void;
+    carRentPrice: number;
 }

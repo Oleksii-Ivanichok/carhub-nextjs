@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import CustomButton from './UI/CustomButton'
+import CustomButton from '../UI/CustomButton'
 const Navbar = () => {
     return (
         <header className="w-full absolute z-10">
