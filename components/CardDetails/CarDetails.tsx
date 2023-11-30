@@ -8,14 +8,19 @@ import {CarDetailsProps, CarProps} from "@types";
 import {generateCarImageUrl} from "@utils";
 import {CustomButton} from "@components";
 import RentDateSelector from "@components/CardDetails/RentDateSelector";
+import {useActions} from "@hooks/useActions";
 
 const CarDetails = ({ isOpen, closeModal, car}: CarDetailsProps) => {
     const [rentedCar, setRentedCar] = useState()
-    const rentCar = (startDate: Date, endDate : Date | null, calculatedPrice: number) => {
-        if(calculatedPrice< 1){
+
+    const {addCar} = useActions()
+    const rentCar = (startDate: Date, endDate : Date | null, days: number, price: number) => {
+        if(price< 1){
             alert(`Select dates correctly`)
         } else {
+            const id = 1;
             alert(`You rent ${car.make} ${car.model} successful`)
+            addCar({...car})
         }
     }
 

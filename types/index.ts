@@ -72,7 +72,7 @@ export interface CustomDatePickerProps {
 }
 
 export interface RentDateSelectorProps {
-    rent: (startDate: Date, endDate: Date | null, calculatedPrice: number) => void;
+    rent: (startDate: Date, endDate : Date | null, days: number, price: number) => void;
     carRentPrice: number;
 }
 
@@ -80,4 +80,11 @@ export interface CartProps {
     isOpen: boolean;
     closeModal: () => void;
     rentedCars: any;
+}
+
+export interface CarCartProps {
+    car: CarProps;
+    id: number;
+    days: number;
+    price: number;
 }

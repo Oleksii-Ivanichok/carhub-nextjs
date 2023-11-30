@@ -13,6 +13,7 @@ const RentDateSelector = ({rent, carRentPrice}:RentDateSelectorProps) => {
         tomorrow.setDate(new Date().getDate() + 1);
         return tomorrow;
     });
+    const [differenceInDays, setDifferenceInDays] = useState(0)
 
     useEffect(() => {
         calculatePriceForRent(startDate, endDate);
@@ -37,7 +38,7 @@ const RentDateSelector = ({rent, carRentPrice}:RentDateSelectorProps) => {
         const differenceInMilliseconds = endDate.getTime() - startDate.getTime();
 
         const differenceInDays = Math.round(differenceInMilliseconds / (1000 * 60 * 60 * 24));
-
+        setDifferenceInDays(differenceInDays);
         const calculatedPrice = carRentPrice * differenceInDays;
         if(calculatedPrice < 1){
             setCalculatedPrice(0);
@@ -52,7 +53,7 @@ const RentDateSelector = ({rent, carRentPrice}:RentDateSelectorProps) => {
                 title="Rent"
                 containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
                 textStyles="text-white text-[14px] leading-17px font-bold"
-                handleClick={()=>rent(startDate, endDate, calculatedPrice)}
+                handleClick={()=>rent(startDate, endDate, differenceInDays, calculatedPrice)}
             />
             <div className="flex flex-col gap-3 pt-3">
                 <CustomDatePicker

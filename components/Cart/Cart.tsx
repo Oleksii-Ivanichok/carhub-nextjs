@@ -8,12 +8,15 @@ import {CartProps} from "@types";
 import {generateCarImageUrl} from "@utils";
 import {CarCard, CustomButton, ShowMore} from "@components";
 import RentDateSelector from "@components/CardDetails/RentDateSelector";
+import {useTypedSelector} from "@hooks/useTypedSelector";
 
-const Cart = ({isOpen, closeModal, rentedCars}: CartProps) => {
+const Cart = ({isOpen, closeModal}: CartProps) => {
 
-    const isCartEmpty = !Array.isArray(rentedCars) || rentedCars.length < 1 || !rentedCars;
+    const {cart} = useTypedSelector(state => state)
 
-    
+    const isCartEmpty = !Array.isArray(cart) || cart.length < 1 || !cart;
+
+    console.log(cart);
     return (
         <>
             <Transition appear show={isOpen} as={Fragment}>
@@ -52,7 +55,7 @@ const Cart = ({isOpen, closeModal, rentedCars}: CartProps) => {
                                     {!isCartEmpty ? (
                                         <section>
                                             <div className="home__cars-wrapper">
-                                                {rentedCars?.map((car) => (
+                                                {cart?.map((car) => (
                                                     <CarCard car={car}/>
                                                 ))}
                                             </div>
@@ -63,7 +66,7 @@ const Cart = ({isOpen, closeModal, rentedCars}: CartProps) => {
                                             <h2 className="text-black text-xl font-bold">
                                                 Your cart is empty
                                             </h2>
-                                            <p>{rentedCars?.message}</p>
+                                            <p>{cart?.message}</p>
                                         </div>
                                     )}
 
