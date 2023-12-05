@@ -9,9 +9,9 @@ import {generateCarImageUrl} from "@utils";
 import {CarCard, CustomButton, ShowMore} from "@components";
 import RentDateSelector from "@components/CardDetails/RentDateSelector";
 
-const Cart = ({isOpen, closeModal, rentedCars}: CartProps) => {
+const Cart = ({isOpen, closeModal}: CartProps) => {
 
-    const isCartEmpty = !Array.isArray(rentedCars) || rentedCars.length < 1 || !rentedCars;
+    // const isCartEmpty = !Array.isArray(rentedCars) || rentedCars.length < 1 || !rentedCars;
 
     
     return (
@@ -49,23 +49,14 @@ const Cart = ({isOpen, closeModal, rentedCars}: CartProps) => {
                                                className="object-contain"/>
                                     </button>
 
-                                    {!isCartEmpty ? (
-                                        <section>
-                                            <div className="home__cars-wrapper">
-                                                {rentedCars?.map((car) => (
-                                                    <CarCard car={car}/>
-                                                ))}
-                                            </div>
-                                            
-                                        </section>
-                                    ) : (
+                                    (
                                         <div className="home__error-container">
                                             <h2 className="text-black text-xl font-bold">
                                                 Your cart is empty
                                             </h2>
-                                            <p>{rentedCars?.message}</p>
+                                            <p>{}</p>
                                         </div>
-                                    )}
+                                    )
 
                                 </Dialog.Panel>
                             </Transition.Child>

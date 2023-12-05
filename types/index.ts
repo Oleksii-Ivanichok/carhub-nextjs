@@ -79,5 +79,4 @@ export interface RentDateSelectorProps {
 export interface CartProps {
     isOpen: boolean;
     closeModal: () => void;
-    rentedCars: any;
 }
